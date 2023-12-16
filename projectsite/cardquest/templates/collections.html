@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- COLLECTIONS -->
+  <section class="collection-container">
+    <table class="styled-table">
+      <tbody>      
+        <tr>
+          <th>Trainer Name</th>
+          <th>Pokemon Card</th>
+          <th>Collection Date</th>
+        </tr>
+        {% for collection in collections %}
+          <tr>
+            <td>{{ collection.trainer.name }}</td>
+            <td>{{ collection.card.name }}</td>
+            <td>{{ collection.collection_date }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="3" style="text-align: center;">
+              <p>No Collections Found</p>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+{% endblock %}
